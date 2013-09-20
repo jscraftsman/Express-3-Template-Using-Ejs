@@ -30,7 +30,6 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/add', routes.add);
 app.post('/add_item', routes.add_item);
 
 var server = app.listen(app.get('port'), function(){

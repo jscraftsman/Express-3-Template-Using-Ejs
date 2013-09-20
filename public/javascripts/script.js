@@ -15,23 +15,16 @@ $(function(){
 			if(e.which == KEYS.ESC){
 				$("input[type=text]").val("").focus();
 			}else if(e.which == KEYS.ENTER){
-				$("#items").append("<li>"+$("#input").val()+"</li>");
-				$("input[type=text]").val("");
-
-				$("#add_item").submit();
-			}else if(e.which == KEYS.SHIFT){
-				$("a")[0].focus();
-			}
-		}else{
-			switch(e.which){
-				case KEYS.L:
-					window.location = "/";
-					break;
-				case KEYS.R:
-					window.location = "/add";
-					break;
-				default:
-				break;
+				var item = $("#input").val();
+				$.ajax({
+					url: "/add_item",
+					data: {item: item},
+					method: "POST",
+					success: function(data){
+						$("#items").append("<li>"+ data.id + " "+ data.item + " " + data.value +"</li>");
+					}
+				});
+				$("#input").val("");
 			}
 		}
 	});

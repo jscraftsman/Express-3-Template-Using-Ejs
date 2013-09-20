@@ -1,7 +1,14 @@
-<h1><%= title %></h1>
-<p>Hello World!</p>
-<ul>
-<% for(var i in rows) {%>
-   <li><%= rows[i].id %>&nbsp;<%= rows[i].item %>&nbsp;<%= rows[i].value %></li>
-<% } %>
-</ul>
+<h1>Welcome to <%= title %>!</h1>
+<div id="add">
+	<p>Add an Item:</p>
+	<input type="text" name="item" id="input" placeholder="Add an item then press enter">
+	<p id="res"></p>
+</div>
+<div>
+	<h1>Items:</h1>
+	<ul id="items">
+		<% for(var i in rows) {%>
+		   <li><%= rows[i].id %>&nbsp;<%= rows[i].item %>&nbsp;<%= rows[i].value %></li>
+		<% } %>
+	</ul>
+</div>

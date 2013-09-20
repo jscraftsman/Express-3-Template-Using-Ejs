@@ -11,7 +11,7 @@ connection.connect();
 
 exports.index = function(req, res){
 
-	var sql = "SELECT * from magic_items LIMIT 0, 5";
+	var sql = "SELECT * from magic_items";
 	connection.query(sql, function(err, rows, fields) {
 		if (err) throw err;
 		var data = {};
@@ -22,14 +22,15 @@ exports.index = function(req, res){
 
 };
 
-exports.add = function(req, res){
-	res.render("add.ejs");
-};
-
 exports.add_item = function(req, res){
 	var item = {item: req.body.item, value: (Math.random()*100)};
 	var query = connection.query('INSERT INTO magic_items SET ?', item, function(err, result) {
 		if (err) throw err;
-		res.redirect("/");
+
+		var sql = "SELECT * FROM magic_items ORDER BY id DESC LIMIT 1;";
+		connection.query(sql, function(err, rows, fields) {
+			if (err) throw err;
+			res.send(rows[0]);
+		});
 	});
 }
