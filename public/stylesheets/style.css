@@ -1,0 +1,12 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+ul.nav{
+	list-style: none;
+}
+ul.nav li{
+	display: inline;
+}
+

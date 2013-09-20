@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title><%= typeof(title) == "undefined" ? "Awesome" : title %></title>
+		<link rel='stylesheet', href='/stylesheets/style.css' />
+		<script type="text/javascript" src="javascripts/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="javascripts/script.js"></script>
+	</head>
+	<body>
+		<div>
+			<ul class="nav">
+				<li><a href="/">Home</a></li>
+				<li><a href="/add">Add</a></li>
+			</ul>
+		</div>
+		<%- body %>
+	</body>
+</html>
